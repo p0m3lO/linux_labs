@@ -1,11 +1,10 @@
 name: Update Vagrant box in public repo
 on:
-  repository_dispatch:
-    types: [trigger-public-workflow]
+  workflow_dispatch:
 
 env:
   BOX_NAME: lab
-  BOX_VERSION: ${{ github.event.client_payload.BOX_VERSION }}"
+  BOX_VERSION: 1.0.2
   REPO_NAME: linux_labs
   REPO_BRANCH: main
   COMMIT_MESSAGE: "Update Vagrantfile with new box version"
