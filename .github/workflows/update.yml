@@ -8,8 +8,7 @@ env:
   REPO_NAME: linux_labs
   REPO_BRANCH: main
   COMMIT_MESSAGE: "Update Vagrantfile with new box version"
-  ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-
+  
 jobs:
   update-vagrantfile:
     runs-on: ubuntu-latest
@@ -24,5 +23,5 @@ jobs:
           git config --global user.name "p0m3lO"
           git add Vagrantfile
           git commit -m "${{ env.COMMIT_MESSAGE }}"
-          git push "https://oauth2:${{ env.ACCESS_TOKEN }}@github.com/${{ env.REPO_NAME }}.git HEAD:${{ env.REPO_BRANCH }}"
+          git push "https://oauth2:${{ secrets.ACCESS_TOKEN }}@github.com/${{ env.REPO_NAME }}.git HEAD:${{ env.REPO_BRANCH }}"
         working-directory: ./vagrant/lab_vm
