@@ -5,7 +5,7 @@ on:
 
 env:
   BOX_NAME: lab
-  BOX_VERSION: ${{ github.event.client_payload.BOX_VERSION }}"
+  BOX_VERSION: ${{ github.event.client_payload.BOX_VERSION }}
   REPO_NAME: linux_labs
   REPO_BRANCH: main
   COMMIT_MESSAGE: "Update Vagrantfile with new box version"
