@@ -8,13 +8,15 @@ env:
   REPO_NAME: linux_labs
   REPO_BRANCH: main
   COMMIT_MESSAGE: "Update Vagrantfile with new box version"
-
+  
 jobs:
   update-vagrantfile:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
         uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Update Vagrantfile with new box version
         run: |
