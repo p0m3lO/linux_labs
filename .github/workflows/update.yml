@@ -20,7 +20,7 @@ jobs:
 
       - name: Update Vagrantfile with new box version
         run: |
-          sed -i "s/config.vm.box_version = "1.0"/config.vm.box_version = "${{ env.BOX_VERSION }}" Vagrantfile
+          sed -i 's/config.vm.box_version = "1.0"/config.vm.box_version = "'${{ env.BOX_VERSION }}'"/g' Vagrantfile
           git config --global user.email "csanad.fekete@gde.hu"
           git config --global user.name "p0m3lO"
           git add Vagrantfile
