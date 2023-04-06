@@ -1,0 +1,29 @@
+name: Update Vagrant box in public repo
+on:
+  repository_dispatch:
+    types: [trigger-public-workflow]
+
+env:
+  BOX_NAME: lab
+  BOX_VERSION: ${{ github.event.client_payload.BOX_VERSION }}"
+  REPO_NAME: linux_labs
+  REPO_BRANCH: main
+  COMMIT_MESSAGE: "Update Vagrantfile with new box version"
+  ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+
+jobs:
+  update-vagrantfile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Update Vagrantfile with new box version
+        run: |
+          sed -i "s/config.vm.box_version = "1.0"/config.vm.box_version = "${{ env.BOX_VERSION }}" Vagrantfile
+          git config --global user.email "csanad.fekete@gde.hu"
+          git config --global user.name "p0m3lO"
+          git add Vagrantfile
+          git commit -m "${{ env.COMMIT_MESSAGE }}"
+          git push https://oauth2:${{ env.ACCESS_TOKEN }}@github.com/${{ env.REPO_NAME }}.git HEAD:${{ env.REPO_BRANCH }}"
+        working-directory: ./vagrant/lab_vm
