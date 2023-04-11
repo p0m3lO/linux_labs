@@ -1,5 +1,6 @@
 import os
 import hashlib
+import sys
 
 def check_directory_exists(directory):
     return os.path.exists(directory) and os.path.isdir(directory)
@@ -32,15 +33,15 @@ def main():
 
     if not check_directory_exists(directory):
         print(f"Directory '{directory}' does not exist.")
-        return
+        sys.exit(1)
 
     if not check_file_exists(file_path):
         print(f"File '{file_name}' does not exist in the directory '{directory}'.")
-        return
+        sys.exit(1)
 
     if not check_file_content_sha256(file_path, expected_sha256s):
         print(f"The content of '{file_name}' is incorrect.")
-        return
+        sys.exit(1)
 
     print("Directory, file, and content checks passed.")
 

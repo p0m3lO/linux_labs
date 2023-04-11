@@ -1,5 +1,6 @@
 import pwd
 import grp
+import sys
 
 def user_exists(username):
     try:
@@ -32,8 +33,10 @@ def main():
             print(f"User '{user}' exists and is part of the '{group}' and '{sudo_group}' groups.")
         else:
             print(f"User '{user}' exists and group '{group}' exists, but the user is not part of both '{group}' and '{sudo_group}' groups.")
+            sys.exit(1)
     else:
         print(f"Either user '{user}' or group '{group}' does not exist.")
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()
