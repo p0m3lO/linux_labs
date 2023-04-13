@@ -1,4 +1,5 @@
 import subprocess
+import sys
 
 # Read the sshd_config file
 with open('/etc/ssh/sshd_config', 'r') as f:
@@ -13,6 +14,9 @@ else:
 # Initiate an SSH connection to the server
 server = "gde-server"
 try:
-    subprocess.run(["ssh", server], check=True)
+    subprocess.run(["ssh", server, "exit"], check=True)
 except subprocess.CalledProcessError:
     print(f"Error: Failed to connect to {server}.")
+    sys.exit(1)
+print("SSH connection closed.")
+
