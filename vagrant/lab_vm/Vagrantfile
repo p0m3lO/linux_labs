@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "demo" do |demo|
-    demo.vm.hostname = "gde-server"
+    demo.vm.hostname = "demo-lab"
     config.vm.network "private_network", ip: "192.168.10.10", virtualbox__intnet: "demo_network", auto_config: true, adapter: 2
   end
   config.vm.provision "shell", inline: <<-SHELL

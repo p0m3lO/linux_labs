@@ -25,7 +25,7 @@ def user_in_group(username, groupname):
 
 def main():
     user = "gde"
-    group = "gdegroup"
+    group = "student"
     sudo_group = "sudo"
 
     if user_exists(user) and group_exists(group):

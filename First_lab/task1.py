@@ -22,9 +22,9 @@ def check_file_content_sha256(file_path, expected_sha256s):
 def main():
     home_directory = os.path.expanduser("~")
     directory = os.path.join(home_directory, "gde")
-    file_name = "gde.out"
+    file_name = "gde.txt"
     file_path = os.path.join(directory, file_name)
-    expected_content_without_newline = "this is a test"
+    expected_content_without_newline = "This is a test"
     expected_content_with_newline = expected_content_without_newline + "\n"
     expected_sha256s = [
         hashlib.sha256(expected_content_without_newline.encode()).hexdigest(),
