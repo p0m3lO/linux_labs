@@ -14,3 +14,5 @@
 
 ### Create a monitor script 
 
+Create a `Bash script` named `monitor.sh` in the `home directory` that pings a server using the IP address provided as the first positional parameter. The script should be executable.
+
