@@ -1,22 +1,36 @@
-import subprocess
+import os
 import sys
 
-# Read the sshd_config file
-with open('/etc/ssh/sshd_config', 'r') as f:
-    config = f.read()
+def check_permanent_hostname(target_hostname):
+    hostname_file = "/etc/hostname"
+    hosts_file = "/etc/hosts"
 
-# Check if password authentication and root login are disabled
-if 'PasswordAuthentication no' in config and 'PermitRootLogin no' in config:
-    print("Password authentication and root login are disabled.")
-else:
-    print("Warning: Password authentication and/or root login are not disabled.")
+    try:
+        with open(hostname_file, 'r') as f:
+            hostname = f.read().strip()
 
-# Initiate an SSH connection to the server
-server = "gde-server"
-try:
-    subprocess.run(["ssh", server, "exit"], check=True)
-except subprocess.CalledProcessError:
-    print(f"Error: Failed to connect to {server}.")
-    sys.exit(1)
-print("SSH connection closed.")
+        if hostname != target_hostname:
+            return False
 
+        with open(hosts_file, 'r') as f:
+            hosts = f.readlines()
+
+        for line in hosts:
+            if line.startswith('127.0.1.1'):
+                parts = line.strip().split()
+                if len(parts) > 1 and parts[1] == target_hostname:
+                    return True
+                else:
+                    return False
+    except FileNotFoundError:
+        print("Error: File not found. Make sure the script is run as root or with proper permissions.")
+        return False
+
+if __name__ == "__main__":
+    target_hostname = "gde-lab"
+    result = check_permanent_hostname(target_hostname)
+    if result:
+        print(f"The hostname is set permanently to '{target_hostname}'.")
+    else:
+        print(f"The hostname is NOT set permanently to '{target_hostname}'.")
+        sys.exit(1)

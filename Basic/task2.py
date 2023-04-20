@@ -1,42 +1,28 @@
-import pwd
-import grp
+import os
 import sys
+import stat
 
-def user_exists(username):
+def check_directory_creation(directory_path, expected_permissions):
     try:
-        pwd.getpwnam(username)
-        return True
-    except KeyError:
-        return False
-
-def group_exists(groupname):
-    try:
-        grp.getgrnam(groupname)
-        return True
-    except KeyError:
-        return False
-
-def user_in_group(username, groupname):
-    try:
-        group = grp.getgrnam(groupname)
-        return username in group.gr_mem
-    except KeyError:
-        return False
-
-def main():
-    user = "gde"
-    group = "student"
-    sudo_group = "sudo"
-
-    if user_exists(user) and group_exists(group):
-        if user_in_group(user, group) and user_in_group(user, sudo_group):
-            print(f"User '{user}' exists and is part of the '{group}' and '{sudo_group}' groups.")
+        if os.path.isdir(directory_path):
+            actual_permissions = stat.S_IMODE(os.stat(directory_path).st_mode)
+            if actual_permissions == expected_permissions:
+                return True
+            else:
+                return False
         else:
-            print(f"User '{user}' exists and group '{group}' exists, but the user is not part of both '{group}' and '{sudo_group}' groups.")
-            sys.exit(1)
-    else:
-        print(f"Either user '{user}' or group '{group}' does not exist.")
-        sys.exit(1)
+            return False
+    except Exception as e:
+        print(f"Error: {e}")
+        return False
 
 if __name__ == "__main__":
-    main()
+    user_home_dir = os.path.expanduser("~")
+    directory_path = os.path.join(user_home_dir, "test")
+    expected_permissions = 0o755
+    result = check_directory_creation(directory_path, expected_permissions)
+    if result:
+        print(f"The directory '{directory_path}' has the correct permissions '{oct(expected_permissions)}'.")
+    else:
+        print(f"The directory '{directory_path}' does NOT have the correct permissions '{oct(expected_permissions)}'.")
+        sys.exit(1)
