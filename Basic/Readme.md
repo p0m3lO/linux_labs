@@ -20,5 +20,11 @@ Change the server hostname permanently to `gde-lab`
 
 ## 5. Task
 
- Install the "htop" package using your `apt package manager`
+Install the "htop" package using your `apt package manager`
+
+## 6. Task
+
+Create a `symbolic link` named `my_symbloic_link` in the `home directory` that points to the  `/tmp/testdir` directory.
+
+
 
