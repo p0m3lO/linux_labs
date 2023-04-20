@@ -18,10 +18,11 @@ def check_permanent_hostname(target_hostname):
         for line in hosts:
             if line.startswith('127.0.1.1'):
                 parts = line.strip().split()
-                if len(parts) > 1 and parts[1] == target_hostname:
+                if len(parts) > 1 and target_hostname in parts[1:]:
                     return True
                 else:
                     return False
+
     except FileNotFoundError:
         print("Error: File not found. Make sure the script is run as root or with proper permissions.")
         return False
