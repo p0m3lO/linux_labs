@@ -1,4 +1,4 @@
-# First Lab tasks
+# Basic lab for linux
 
 ## 1. Task
 
