@@ -26,5 +26,10 @@ Install the "htop" package using your `apt package manager`
 
 Create a `symbolic link` named `my_symbloic_link` in the `home directory` that points to the  `/tmp/testdir` directory.
 
+## 7. Task
 
+Create a Bash script named "grep_search.sh" in the user's home directory that searches for a given pattern in a specified file. The script should accept the file path as the first positional parameter and the pattern as the second positional parameter. The script should be executable.
 
+## 8. Task
+
+Create a Bash script named "redirection.sh" in the `home directory` that reads input from a given file, converts all characters to uppercase using `tr`, and writes the output to another specified file. The script should accept the input file path as the first positional parameter and the output file path as the second positional parameter. The script should be executable.
