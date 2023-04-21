@@ -25,3 +25,15 @@ Create a ***Bash script*** named ***monitor.sh*** in the ***home directory*** th
 - ***Create*** a custom HTML welcome page with the text ***"Welcome to My GDE lab test Site!"*** in an `<h1>` element
 - ***Configure*** Nginx to serve the custom welcome page as the default page
 - ***Restart*** the Nginx service to apply the changes
+
+## 4. Task
+
+### Basic file creation Task
+
+Create an ***NFS server*** that only supports NFSv4 protocol and exports a shared directory to clients in
+
+- Install the necessary NFS server packages.
+- Create a shared directory, ***/opt/nfs/shared***
+- Configure the NFS server to export the shared directory and allow only NFSv4 protocol
+- Start and enable the NFS server service
+- Configure the firewall to allow NFSv4 traffic

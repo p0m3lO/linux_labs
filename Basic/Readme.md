@@ -60,4 +60,4 @@ Create a Bash script named "find_files.sh" in the home directory that searches f
 
 ### Basic Tar usage
 
-Create a Bash script named "tar_demo.sh" in the ***home directory*** that compresses or extracts files using the 'tar' command. The script should accept an operation mode flag ("-c" for compress or "-x" for extract) as the first positional parameter, an archive file path as the second positional parameter, and an optional directory path as the third positional parameter (required for compression). The script should be executable.
+Create a Bash script named "tar_demo.sh" in the ***home directory*** that compresses or extracts files using the ***'tar'*** command. The script should accept an operation mode flag (***"-c"*** for compress or ***"-x"*** for extract) as the first positional parameter, an archive file path as the second positional parameter, and an optional directory path as the third positional parameter (required for compression). The script should be executable.

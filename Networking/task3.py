@@ -20,7 +20,7 @@ def check_custom_welcome_page():
     soup = BeautifulSoup(content, "html.parser")
     h1_elements = soup.find_all("h1")
 
-    if len(h1_elements) == 1 and h1_elements[0].text == "Welcome to My Gde lab test Site!":
+    if len(h1_elements) == 1 and h1_elements[0].text == "Welcome to My GDE lab test Site!":
         return True
     else:
         return False
