@@ -36,7 +36,7 @@ Install the "htop" package using your ***apt package manager***
 
 ### Basic symbolic link Task
 
-Create a ***symbolic link*** named ***my_symbloic_link*** in the ***home directory*** that points to the  ***/tmp/testdir*** directory.
+Create a ***symbolic link*** named ***gde_link*** in the ***home directory*** that points to the  ***/tmp/testdir*** directory.
 
 ## 7. Task
 

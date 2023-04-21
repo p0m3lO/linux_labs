@@ -17,7 +17,7 @@ def check_symbolic_link(link_path, target_path):
 
 if __name__ == "__main__":
     user_home_dir = os.path.expanduser("~")
-    link_path = os.path.join(user_home_dir, "my_symbloic_link")
+    link_path = os.path.join(user_home_dir, "gde_link")
     target_path = "/tmp/testdir"
     result = check_symbolic_link(link_path, target_path)
     if result:
