@@ -27,4 +27,4 @@ jobs:
           git add Vagrantfile
           git commit -m "${{ env.COMMIT_MESSAGE }}"
           git push
-        working-directory: ./vagrant/lab_vm
+        working-directory: ./lab_vm
