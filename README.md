@@ -9,7 +9,7 @@
 
 1. Provision the virtual lab machines
 
-    To use the virtual lab machine navigate to the ***vagrant/lab_vm*** or the ***vagrant/server_vm*** directory and provision the virtual machine:
+    To use the virtual lab machine navigate to the ***lab_vm*** or the ***server_vm*** directory and provision the virtual machine:
 
     ```
     $ vagrant up
