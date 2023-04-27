@@ -32,6 +32,9 @@
     $ lab --stop
     ```
 
+    After the web interface started you can access it through the host browser at http://localhost:5000
+
+
 4. Start / stop the virtual lab terminal interface
 
     After connected to the virtual lab machine run:
