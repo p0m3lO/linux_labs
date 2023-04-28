@@ -19,7 +19,7 @@
 
 2. ***Connect to the virtual lab machine***
 
-    From the ***vagrant/lab_vm*** directory run:
+    From the ***lab_vm/*** directory run:
 
     ```
     $ vagrant ssh
@@ -44,7 +44,7 @@
 
 5. ***Stop the virtual lab machine***
 
-    From the ***vagrant/lab_vm*** directory run:
+    From the ***lab_vm*** directory run:
 
     ```
     $ vagrant halt
