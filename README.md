@@ -44,7 +44,7 @@
 
 5. ***Stop the virtual lab machine***
 
-    From the ***lab_vm*** directory run:
+    From the ***lab_vm/*** directory run:
 
     ```
     $ vagrant halt
