@@ -23,7 +23,7 @@
     $ vagrant ssh
     ```
 
-3. Start / stop the virtual lab web interface
+3. Start / stop the virtual lab web interface (the web interface autostarts with the vagrant up command)
 
     After connected to the virtual lab machine run:
 
