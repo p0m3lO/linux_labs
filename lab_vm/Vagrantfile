@@ -21,6 +21,7 @@ Vagrant.configure("2") do |config|
     sudo apt-get update && sudo apt-get install -y curl git
     sudo wget https://github.com/tsl0922/ttyd/releases/download/1.7.3/ttyd.x86_64 -O /usr/local/bin/ttyd
     sudo chmod +x /usr/local/bin/ttyd
+    lab --start
   SHELL
 
 end
