@@ -5,6 +5,11 @@
 1. Vagrant
 2. Virtualbox
 
+## Good to know
+
+It is recommended to synchronize the labs every time you start working with it. 
+
+
 ## Usage
 
 1. ***Provision the virtual lab machines***
@@ -33,12 +38,12 @@
     $ lab --start
     $ lab --stop
     ```
-
-4. ***Start / stop the virtual lab terminal interface***
-
-    After connected to the virtual lab machine run:
+4. ***Synchronize the labs and start / stop the virtual lab terminal interface***
+    
+   After connected to the virtual lab machine run:
 
     ```
+    $ lab --resync
     $ lab
     ```
 
