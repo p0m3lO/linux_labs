@@ -28,3 +28,15 @@ jobs:
           git commit -m "${{ env.COMMIT_MESSAGE }}"
           git push
         working-directory: ./lab_vm
+        if: contains(env.BOX_VERSION, 'mac') == false
+        
+      - name: Update Mac Vagrantfile with new box version
+        run: |
+          sed -i 's/config.vm.box_version = ".*"/config.vm.box_version = "${{ env.BOX_VERSION }}"/g' Vagrantfile
+          git config --global user.email "csanad.fekete@gde.hu"
+          git config --global user.name "p0m3lO"
+          git add Vagrantfile
+          git commit -m "${{ env.COMMIT_MESSAGE }}"
+          git push
+        working-directory: ./lab_vm_mac
+        if: contains(env.BOX_VERSION, 'mac')
