@@ -65,14 +65,14 @@ It is recommended to synchronize the labs every time you start working with it.
 
 ### Windows
 
-If vagrant cannot provision the VM and it stucks you may need to disable WSL and restart:
+1. If vagrant cannot provision the VM and it stucks you may need to disable WSL and restart:
 
 ```
 bcdedit /set hypervisorlaunchtype off
 ```
 
-If ssh not working via vagrant ssh (permission denied public key):
+2. If ssh not working via vagrant ssh (permission denied public key):
 
-...
+```
 Delete the default openssh which is preinstalled with Win10: settings => apps => apps and features => Optional features" => filter out ssh and delete openssh
-...
+```
