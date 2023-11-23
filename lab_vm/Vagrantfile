@@ -24,4 +24,8 @@ Vagrant.configure("2") do |config|
     su vagrant sh -c "lab --start"
   SHELL
 
+  config.vm.provision "shell", run: 'always', inline: <<-SHELL
+    su vagrant sh -c "lab --start"
+  SHELL
+
 end
